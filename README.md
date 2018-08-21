@@ -1,3 +1,30 @@
+# Ошибки:
+
+1) index.html Пропущены теги в шаблоне
+2) index.css Растянуть карту на весь экран
+3) Чарт - сбита настройка по оси Y. yAxes: [{ ticks: { beginAtZero: true, min: 0 } }]
+4) details.js убрал оттуда template от Lodash (или underscore) в index.html
+	Там же была самая жёсткая ошибка с замыканием (ох уж эти лямбды):
+	      build: () => {
+		  
+		clear: () => {
+
+		  
+5) index.js 
+import {initMap} from "./map";
+Поправил импорт
+
+6) map.js
+	Опечатка 
+	objectManager.add(data.features);
+	
+Это уже не опечатка (диверсия)
+myMap.geoObjects.add(objectManager);
+
+7)mapper.js
+Перепутана широта и долгота
+ coordinates: [obj.lat, obj.long]
+
 # Задание 1 — найди ошибки
 
 В этом репозитории находятся материалы тестового задания "Найди ошибки" для [14-й Школы разработки интерфейсов](https://academy.yandex.ru/events/frontend/shri_msk-2018-2) (осень 2018, Москва, Санкт-Петербург, Симферополь).
@@ -23,4 +50,3 @@ npm i
 npm start
 ```
 
-При каждом запуске тестовые данные генерируются заново случайным образом.
